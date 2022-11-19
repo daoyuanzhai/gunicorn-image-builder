@@ -8,6 +8,4 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 # install gunicorn
 RUN pip install -Iv gunicorn==20.1.0
 
-COPY gunicorn.socket /etc/systemd/system/gunicorn.socket
-
 CMD gunicorn --version
