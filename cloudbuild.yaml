@@ -8,13 +8,13 @@ steps:
   # build the image
   - name: "gcr.io/cloud-builders/docker"
     entrypoint: "bash"
-    args: ["-c", "docker build -t $$USERNAME/gunicorn:latest ."]
+    args: ["-c", "docker build -t $$USERNAME/gunicorn:$TAG_NAME ."]
     secretEnv: ["USERNAME"]
 
   # push image to dockerhub
   - name: "gcr.io/cloud-builders/docker"
     entrypoint: "bash"
-    args: ["-c", "docker push $$USERNAME/gunicorn:latest"]
+    args: ["-c", "docker push $$USERNAME/gunicorn:$TAG_NAME"]
     secretEnv: ["USERNAME"]
 
 availableSecrets:
